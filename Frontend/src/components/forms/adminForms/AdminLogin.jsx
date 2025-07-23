@@ -1,15 +1,16 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { FcPrivacy } from "react-icons/fc";
-import { RiLoginCircleFill } from "react-icons/ri";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { FcPrivacy, FcCurrencyExchange } from "react-icons/fc";
+import { RiLoginCircleFill } from "react-icons/ri";
+import { login } from "../../../state/features/User/Auth/authSlice";
 import { adminLogin } from "../../../state/features/Admin/Auth/adminAuthSlice";
 import FormButton from "../../shared/FormButton";
-import { Logo } from "../../shared/Logo";
 import MessagesContainer from "../../shared/MessagesContainer";
+import { Logo } from "../../shared/Logo";
 
 export default function AdminLogin() {
+  const [role, setRole] = useState("user");
   const [formInputs, setFormInputs] = useState({
     email: "",
     password: "",
@@ -19,106 +20,110 @@ export default function AdminLogin() {
   const { email, password, msg } = formInputs;
 
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
-  const { info, isError, isSuccess, isLoading, message } = useSelector(
-    (state) => state.adminAuth
-  );
+  const userAuth = useSelector((state) => state.userAuth);
+  const adminAuth = useSelector((state) => state.adminAuth);
+
+  const authState = role === "admin" ? adminAuth : userAuth;
 
   useEffect(() => {
-    if (isError) {
-      setFormInputs({ ...formInputs, msg: message });
+    if (authState.isError) {
+      setFormInputs({ ...formInputs, msg: authState.message });
     }
 
-    if (info) {
-      setFormInputs({ ...formInputs, msg: "Login Succesfully" });
+    if ((role === "admin" && authState.info) || (role === "user" && authState.user)) {
+      setFormInputs({ ...formInputs, msg: "Login Successfully" });
       navigate("/");
     }
-  }, [isError, message, info, msg]);
+  }, [authState, role]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    //set msg to none first
     setFormInputs({ ...formInputs, msg: "" });
 
-    const adminData = {
+    const credentials = {
       email: email.trim(),
       password,
     };
-    dispatch(adminLogin(adminData));
+
+    if (role === "admin") {
+      dispatch(adminLogin(credentials));
+    } else {
+      dispatch(login(credentials));
+    }
   };
 
   return (
     <div className="block p-6 rounded shadow-lg shadow-black/20 bg-slate-50 max-w-md w-full mx-auto">
       <Logo />
-      <h3 className="flex justify-center items-center text-2xl text-blue-800 font-bold text-center p-2 my-4 rounded shadow bg-blue-200 border-x-4 border-blue-800 select-none">
-        <FcPrivacy size={45} />
-        <span>Admins Login</span>
-      </h3>
-      <form className="mt-10" onSubmit={handleSubmit}>
+      <h3 className="text-center text-xl font-bold text-blue-800 mb-4">Choose Account Type</h3>
+
+      <div className="flex justify-center gap-6 mb-6">
+        <div
+          className={`p-4 border rounded cursor-pointer ${role === "admin" ? "bg-blue-100 border-blue-700" : "border-gray-300"}`}
+          onClick={() => setRole("admin")}
+        >
+          <FcPrivacy size={50} className="mx-auto" />
+          <p className="text-center mt-2 font-semibold">Admin</p>
+        </div>
+
+        <div
+          className={`p-4 border rounded cursor-pointer ${role === "user" ? "bg-blue-100 border-blue-700" : "border-gray-300"}`}
+          onClick={() => setRole("user")}
+        >
+          <FcCurrencyExchange size={50} className="mx-auto" />
+          <p className="text-center mt-2 font-semibold">User</p>
+        </div>
+      </div>
+
+      <p className="text-center font-semibold text-gray-700 mb-4">Hello {role}! Please login below:</p>
+
+      <form onSubmit={handleSubmit}>
         <div className="mb-6">
-          <label
-            htmlFor="email"
-            className="w-full inline-block font-semibold mb-4 p-2 text-gray-800 border-b-4 border-blue-800 rounded shadow bg-blue-200"
-          >
-            Email address
-          </label>
+          <label className="block font-semibold mb-2 text-gray-800">Email address</label>
           <input
             type="email"
-            name="email"
-            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-800 focus:outline-none"
-            defaultValue={email}
-            onChange={(e) =>
-              setFormInputs({ ...formInputs, email: e.target.value })
-            }
+            className="block w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-600"
+            value={email}
+            onChange={(e) => setFormInputs({ ...formInputs, email: e.target.value })}
             placeholder="Enter your Email"
             required
           />
         </div>
+
         <div className="mb-6">
-          <label
-            htmlFor="password"
-            className="w-full inline-block font-semibold mb-4 p-2 text-gray-800 border-b-4 border-blue-800 rounded shadow bg-blue-200"
-          >
-            Password
-          </label>
+          <label className="block font-semibold mb-2 text-gray-800">Password</label>
           <input
             type="password"
-            name="password"
-            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-800 focus:outline-none"
-            defaultValue={password}
-            onChange={(e) =>
-              setFormInputs({ ...formInputs, password: e.target.value })
-            }
-            placeholder="Enter Your Password"
+            className="block w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-600"
+            value={password}
+            onChange={(e) => setFormInputs({ ...formInputs, password: e.target.value })}
+            placeholder="Enter your Password"
             required
           />
         </div>
-        <div className="flex justify-end items-center mb-6">
-          <a
-            href="#"
-            className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
-          >
-            Forgot password?
-          </a>
+
+        <div className="flex justify-end mb-4">
+          <a href="#" className="text-blue-600 hover:underline text-sm">Forgot password?</a>
         </div>
 
-        {/*Request Status and Errors*/}
-        {(isError || isSuccess) && (
-          <MessagesContainer
-            msg={msg}
-            isSuccess={isSuccess}
-            isError={isError}
-          />
+        {(authState.isError || authState.isSuccess) && (
+          <MessagesContainer msg={msg} isSuccess={authState.isSuccess} isError={authState.isError} />
         )}
 
-        {/*form button */}
         <FormButton
           text={{ loading: "Processing", default: "Login" }}
-          isLoading={isLoading}
-          icon={<RiLoginCircleFill className="mb-[-2px] ml-1" size={27} />}
+          isLoading={authState.isLoading}
+          icon={<RiLoginCircleFill className="ml-2" size={24} />}
         />
+
+        <p className="text-center mt-6 text-sm">
+          Not registered?{" "}
+          <a href="/register" className="text-blue-600 hover:underline">
+            Signup
+          </a>
+        </p>
       </form>
     </div>
   );
