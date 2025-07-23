@@ -1,9 +1,9 @@
 
-<h1 id="title" align="center">Sprints-MERN-E-Banking-System</h1>
+<h1 id="title" align="center">Digital-Vault</h1>
 
-<p align="center"><img src="C:\Users\KarthikaS\Downloads\canvas.jpg?font=Bitter&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Charlie%20Brown&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
+<p align="center"><img src="https://www.homeloanexperts.com.au/wp-content/uploads/2020/07/AdobeStock_268788422-min-scaled.jpeg?font=Bitter&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Charlie%20Brown&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
 
-<p id="description">This Full Stack MERN Application is a comprehensive E-Bank system that allows users to create and manage their own secure online bank accounts. With this system users can easily perform common banking tasks such as depositing withdrawing and transferring money at any time. Additionally the application features an intuitive admin dashboard that enables administrators to efficiently manage user account requests and bank account statuses with ease. Whether you're a user looking for a convenient and secure way to manage your finances or an administrator seeking a powerful tool to streamline your workflow this application is the perfect solution.</p>
+<p id="description">This Full Stack MERN-based E-Banking system provides a secure and scalable platform for managing online bank accounts. Built using MongoDB, Express.js, React.js, and Node.js, the application supports core banking functionalities such as deposit, withdrawal, and fund transfer operations with real-time updates. The user module ensures secure authentication and authorization, allowing customers to manage their accounts independently. On the administrative side, a dedicated dashboard enables admins to monitor user activity, approve or reject account requests, and manage account statuses efficiently. This system is designed to ensure data integrity, streamline financial operations, and offer a seamless experience for both end-users and administrators.</p>
 
 ### Getting Started
 
