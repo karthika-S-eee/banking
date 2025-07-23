@@ -32,7 +32,7 @@ const checkAccount = async (req, res, next) => {
       return res
         .status(400)
         .send(
-          "The Account you Sending to is Not Exist!, Make Sure you type Correctly"
+          "The Account you Sending to is Not Exist!, Make Sure you  type Correctly"
         );
     }
     return res.status(500).send("Ooops!! Something Went Wrong, Try again...");
