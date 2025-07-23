@@ -44,13 +44,13 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Please Type AN EGY Phone Number!"],
       unique: true,
-      validate: {
-        validator: function (v) {
-          let regex = new RegExp("^(1)[0-2,5]{1}[0-9]{8}");
-          return regex.test(v) && v.toString().length === 10;
-        },
-        message: "Please Enter A Valid EGY Phone Number!",
-      },
+     // validate: {
+      //   validator: function (v) {
+      //     let regex = new RegExp("/^[6-9][0-9]{9}$/");
+      //     return regex.test(v);
+      //   },
+      //   message: "Please Enter A Valid IN Phone Number!",
+      // },
     },
     full_addresse: {
       type: String,
@@ -59,13 +59,13 @@ const userSchema = new mongoose.Schema(
     zip_code: {
       type: Number,
       required: [true, "Please Type A Zip/Postal Code!"],
-      validate: {
-        validator: function (v) {
-          let regex = new RegExp("^[0-9]{5}$");
-          return regex.test(v);
-        },
-        message: "Please Enter A Valid Zip/Postal Code",
-      },
+      // validate: {
+      //   validator: function (v) {
+      //     let regex = new RegExp("/^[1-9][0-9]{5}$/");
+      //     return regex.test(v);
+      //   },
+      //   message: "Please Enter A Valid Zip/Postal Code",
+      // },
     },
     role: {
       type: String,
