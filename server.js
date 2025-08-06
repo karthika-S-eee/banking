@@ -8,7 +8,7 @@ const app = express();
 // Connect to MongoDB
 const { connectToMongoose } = require("./config/db");
 
-// Middleware to parse JSON
+
 app.use(express.json());
 
 // Dynamic CORS configuration
