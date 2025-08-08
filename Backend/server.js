@@ -8,18 +8,13 @@ const app = express();
 // Connect to MongoDB
 const { connectToMongoose } = require("./config/db");
 
-
+// Middleware to parse JSON
 app.use(express.json());
 
 // Dynamic CORS configuration
 const { corsDevOptions, corsProOptions } = require("./config/corsConfig");
 const isProduction = process.env.NODE_ENV === "production";
 app.use(cors(isProduction ? corsProOptions : corsDevOptions));
-
-app.get("/", (req, res) => {
-  res.send("Backend is running");
-});
-
 
 // Rate limiter middleware for API routes
 const {
