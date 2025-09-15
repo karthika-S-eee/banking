@@ -2,7 +2,7 @@
 
 // // Devlopement CORS Configurations//
 
-// const devWhitelist = ["http://localhost:3000","http://0.0.0.0:3000"];
+// const devWhitelist = ["http://localhost:3000","htpp://localhost:3001","http://0.0.0.0:3000"];
 
 // const corsDevOptions = {
 //   origin: function (origin, callback) {
