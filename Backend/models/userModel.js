@@ -8,21 +8,21 @@ const userSchema = new mongoose.Schema(
     user_name: {
       type: String,
       required: [true, "Please Type A User Name!"],
-      validate: {
-        validator: function (v) {
-          let regex = new RegExp(
-            "^(?=[a-zA-Z0-9._ ]{10,35}$)(?!.*[_.]{2})[^_.].*[^_.]$"
-            /*   no >>> _ or . at the beginning
-            no >>>__ or _. or ._ or .. inside 
-            no >>> _ or . at the end
-            [a-zA-Z0-9._] >> allowed characters
-            username is {10-} characters long
-            */
-          );
-          return regex.test(v);
-        },
-        message: "Please Enter A Valid User Name!",
-      },
+      // validate: {
+      //   validator: function (v) {
+      //     let regex = new RegExp(
+      //       "^(?=[a-zA-Z0-9._ ]{10,35}$)(?!.*[_.]{2})[^_.].*[^_.]$"
+      //       /*   no >>> _ or . at the beginning
+      //       no >>>__ or _. or ._ or .. inside 
+      //       no >>> _ or . at the end
+      //       [a-zA-Z0-9._] >> allowed characters
+      //       username is {10-} characters long
+      //       */
+      //     );
+      //     return regex.test(v);
+      //   },
+      //   message: "Please Enter A Valid User Name!",
+      // },
     },
     email: {
       type: String,
@@ -44,13 +44,13 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Please Type AN EGY Phone Number!"],
       unique: true,
-      validate: {
-        validator: function (v) {
-          let regex = new RegExp("^(1)[0-2,5]{1}[0-9]{8}");
-          return regex.test(v) && v.toString().length === 10;
-        },
-        message: "Please Enter A Valid EGY Phone Number!",
-      },
+      // validate: {
+      //   validator: function (v) {
+      //     let regex = new RegExp("^(1)[0-2,5]{1}[0-9]{8}");
+      //     return regex.test(v) && v.toString().length === 10;
+      //   },
+      //   message: "Please Enter A Valid EGY Phone Number!",
+      // },
     },
     full_addresse: {
       type: String,
@@ -59,13 +59,13 @@ const userSchema = new mongoose.Schema(
     zip_code: {
       type: Number,
       required: [true, "Please Type A Zip/Postal Code!"],
-      validate: {
-        validator: function (v) {
-          let regex = new RegExp("^[0-9]{5}$");
-          return regex.test(v);
-        },
-        message: "Please Enter A Valid Zip/Postal Code",
-      },
+      // validate: {
+      //   validator: function (v) {
+      //     let regex = new RegExp("^[0-9]{5}$");
+      //     return regex.test(v);
+      //   },
+      //   message: "Please Enter A Valid Zip/Postal Code",
+      // },
     },
     role: {
       type: String,

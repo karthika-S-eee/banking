@@ -216,15 +216,16 @@ export default function Register() {
           />
         </div>
 
-        {/* password validator */}
-        <InputsValidator passwordInput={password} />
+       {/* password validator  */}
+         <InputsValidator passwordInput={password} /> 
+
 
         <div className="relative z-0 w-full mb-6">
           <label
             htmlFor="phone"
             className="w-full inline-block font-semibold mb-4 p-2 text-gray-800 border-b-4 border-blue-800 rounded shadow bg-blue-200"
           >
-            Phone Number Ex:-(01008878980)
+            Phone Number Ex:-(9788306350)
           </label>
 
           <input

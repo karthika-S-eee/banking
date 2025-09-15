@@ -41,7 +41,7 @@ export default function Motivation() {
               {" "}
               Discover the Top Reasons to Bank with{" "}
               <span className="font-extrabold text-orange-500">
-                E-Bank
+                Digital_Vault!
               </span>{" "}
             </h2>
             <p className="text-white !font-sans font-light  text-lg leading-5">

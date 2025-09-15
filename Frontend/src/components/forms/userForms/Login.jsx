@@ -1,6 +1,252 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { FcCurrencyExchange } from "react-icons/fc";
+// import React from "react";
+// import { useState, useEffect } from "react";
+// import { FcCurrencyExchange } from "react-icons/fc";
+// import { RiLoginCircleFill } from "react-icons/ri";
+// import { useDispatch, useSelector } from "react-redux";
+// import { Link, useNavigate } from "react-router-dom";
+// import { login } from "../../../state/features/User/Auth/authSlice";
+// import FormButton from "../../shared/FormButton";
+// import { Logo } from "../../shared/Logo";
+// import MessagesContainer from "../../shared/MessagesContainer";
+
+// export default function Login() {
+//   const [formInputs, setFormInputs] = useState({
+//     email: "",
+//     password: "",
+//     msg: "",
+//   });
+
+//   const { email, password, msg } = formInputs;
+
+//   const navigate = useNavigate();
+
+//   const dispatch = useDispatch();
+
+//   const { user, isError, isSuccess, isLoading, message } = useSelector(
+//     (state) => state.userAuth
+//   );
+
+//   useEffect(() => {
+//     if (isError) {
+//       setFormInputs({ ...formInputs, msg: message });
+//     }
+
+//     if (user) {
+//       setFormInputs({ ...formInputs, msg: "Login Succesfully" });
+//       navigate("/");
+//     }
+//   }, [isError, message, user, msg]);
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     //set msg to none first
+//     setFormInputs({ ...formInputs, msg: "" });
+
+//     const userData = {
+//       email: email.trim(),
+//       password,
+//     };
+//     dispatch(login(userData));
+//   };
+
+//   return (
+//     <div className="w-full lg:w-[40%] max-w-md block p-6 rounded shadow-lg shadow-black/20 bg-slate-50 mx-auto">
+//       <Logo />
+// {/* <div className="flex justify-center my-4 gap-6">
+//           <div className="cursor-pointer p-2 border rounded border-blue-600">
+//             <FcCurrencyExchange size={40} />
+//             <p className="text-center">User</p>
+//           </div>
+//           <div
+//             onClick={() => navigate("/admins/login")}
+//             className="cursor-pointer p-2 border rounded border-gray-300 hover:border-blue-600"
+//           >
+//             <FcPrivacy size={40} />
+//             <p className="text-center">Admin</p>
+//           </div>
+//         </div> */}
+//       <h3 className="flex justify-center items-center text-2xl text-blue-800 font-bold text-center p-2 my-4 rounded shadow bg-blue-200 border-x-4 border-blue-800 select-none">
+//         <FcCurrencyExchange className="mr-1" size={45} />
+//         <span>Login</span>
+//       </h3>
+//       <form className="mt-10" onSubmit={handleSubmit}>
+//         <div className="mb-6">
+//           <label
+//             htmlFor="email"
+//             className="w-full inline-block font-semibold mb-4 p-2 text-gray-800 border-b-4 border-blue-800 rounded shadow bg-blue-200"
+//           >
+//             Email address
+//           </label>
+//           <input
+//             type="email"
+//             name="email"
+//             className="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+//             defaultValue={email}
+//             onChange={(e) =>
+//               setFormInputs({ ...formInputs, email: e.target.value })
+//             }
+//             placeholder="Enter your Email"
+//             required
+//           />
+//         </div>
+//         <div className="mb-6">
+//           <label
+//             htmlFor="password"
+//             className="w-full inline-block font-semibold mb-4 p-2 text-gray-800 border-b-4 border-blue-800 rounded shadow bg-blue-200"
+//           >
+//             Password
+//           </label>
+//           <input
+//             type="password"
+//             name="password"
+//             className="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-800 focus:outline-none"
+//             defaultValue={password}
+//             onChange={(e) =>
+//               setFormInputs({ ...formInputs, password: e.target.value })
+//             }
+//             placeholder="Enter Your Password"
+//             required
+//           />
+//         </div>
+//         <div className="flex justify-end items-center mb-6">
+//           <a
+//             href="#"
+//             className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
+//           >
+//             Forgot password?
+//           </a>
+//         </div>
+
+//         {/*Request Status and Errors*/}
+//         {(isError || isSuccess) && (
+//           <MessagesContainer
+//             msg={msg}
+//             isSuccess={isSuccess}
+//             isError={isError}
+//           />
+//         )}
+
+//         {/*form button */}
+//         <FormButton
+//           text={{ loading: "Processing", default: "Login" }}
+//           isLoading={isLoading}
+//           icon={<RiLoginCircleFill className="mb-[-2px] ml-1" size={27} />}
+//         />
+
+//         {/*Redirect for Register */}
+
+//         <p className="text-gray-800 mt-6 text-center">
+//           Not a Client?
+//           <Link
+//             to="/register"
+//             className="mx-2 text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
+//           >
+//             Register
+//           </Link>
+//         </p>
+//       </form>
+//     </div>
+//   );
+//}
+
+// import React, { useState, useEffect } from "react";
+// import { FcCurrencyExchange, FcPrivacy } from "react-icons/fc";
+// import { RiLoginCircleFill } from "react-icons/ri";
+// import { useDispatch, useSelector } from "react-redux";
+// import { Link, useNavigate } from "react-router-dom";
+// import { login } from "../../../state/features/User/Auth/authSlice";
+// import FormButton from "../../shared/FormButton";
+// import { Logo } from "../../shared/Logo";
+// import MessagesContainer from "../../shared/MessagesContainer";
+
+// export default function Login() {
+//   const [formInputs, setFormInputs] = useState({ email: "", password: "", msg: "" });
+//   const { email, password, msg } = formInputs;
+
+//   const navigate = useNavigate();
+//   const dispatch = useDispatch();
+
+//   const { user, isError, isSuccess, isLoading, message } = useSelector(
+//     (state) => state.userAuth
+//   );
+
+//   useEffect(() => {
+//     if (isError) setFormInputs({ ...formInputs, msg: message });
+//     if (user) {
+//       setFormInputs({ ...formInputs, msg: "Login Successfully" });
+//       navigate("/");
+//     }
+//   }, [isError, message, user]);
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setFormInputs({ ...formInputs, msg: "" });
+//     dispatch(login({ email: email.trim(), password }));
+//   };
+
+//   return (
+//     <div className="flex">
+//       <div className="block p-6 rounded shadow-lg bg-slate-50 max-w-md w-full mx-auto">
+//         <Logo />
+
+//         {/* Switch to Admin */}
+        
+
+//         <h3 className="flex justify-center items-center text-2xl text-blue-800 font-bold text-center p-2 my-4 rounded shadow bg-blue-200 border-x-4 border-blue-800 select-none">
+//           <FcCurrencyExchange size={35} />
+//           <span className="ml-2">User Login</span>
+//         </h3>
+
+//         <form className="mt-10" onSubmit={handleSubmit}>
+//           <div className="mb-6">
+//             <label className="block font-semibold mb-2">Email address</label>
+//             <input
+//               type="email"
+//               value={email}
+//               onChange={(e) => setFormInputs({ ...formInputs, email: e.target.value })}
+//               placeholder="Enter your Email"
+//               required
+//               className="w-full border p-2 rounded"
+//             />
+//           </div>
+//           <div className="mb-6">
+//             <label className="block font-semibold mb-2">Password</label>
+//             <input
+//               type="password"
+//               value={password}
+//               onChange={(e) => setFormInputs({ ...formInputs, password: e.target.value })}
+//               placeholder="Enter your Password"
+//               required
+//               className="w-full border p-2 rounded"
+//             />
+//           </div>
+
+//           <div className="flex justify-end mb-6">
+//             <a href="#" className="text-blue-600 hover:underline">Forgot password?</a>
+//           </div>
+
+//           {(isError || isSuccess) && (
+//             <MessagesContainer msg={msg} isSuccess={isSuccess} isError={isError} />
+//           )}
+
+//           <FormButton
+//             text={{ loading: "Processing", default: "Login" }}
+//             isLoading={isLoading}
+//             icon={<RiLoginCircleFill size={25} />}
+//           />
+
+//           <p className="text-gray-800 mt-6 text-center">
+//             Not a Client?{" "}
+//             <Link to="/register" className="mx-2 text-blue-600 hover:underline">Register</Link>
+//           </p>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
+
+import React, { useState, useEffect } from "react";
+import { FcCurrencyExchange, FcPrivacy } from "react-icons/fc";
 import { RiLoginCircleFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -19,44 +265,62 @@ export default function Login() {
   const { email, password, msg } = formInputs;
 
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const { user, isError, isSuccess, isLoading, message } = useSelector(
     (state) => state.userAuth
   );
 
+  // Handle errors and success messages
   useEffect(() => {
     if (isError) {
-      setFormInputs({ ...formInputs, msg: message });
+      setFormInputs((prev) => ({ ...prev, msg: message }));
     }
 
-    if (user) {
-      setFormInputs({ ...formInputs, msg: "Login Succesfully" });
-      navigate("/");
+    if (isSuccess || user) {
+      setFormInputs((prev) => ({ ...prev, msg: "Login Successfully" }));
+      navigate("/"); // redirect after login
     }
-  }, [isError, message, user, msg]);
+  }, [isError, message, isSuccess, user, navigate]);
 
-  const handleSubmit = async (e) => {
+  // Handle form submit
+  const handleSubmit = (e) => {
     e.preventDefault();
-    //set msg to none first
-    setFormInputs({ ...formInputs, msg: "" });
+    setFormInputs((prev) => ({ ...prev, msg: "" }));
 
     const userData = {
       email: email.trim(),
       password,
     };
+
     dispatch(login(userData));
   };
 
   return (
-    <div className="w-full lg:w-[40%] max-w-md block p-6 rounded shadow-lg shadow-black/20 bg-slate-50 mx-auto">
+    <div className="w-full lg:w-[40%] max-w-md p-6 rounded shadow-lg shadow-black/20 bg-slate-50 mx-auto">
       <Logo />
+
+      <div className="flex justify-center my-4 gap-6">
+        <div className="cursor-pointer p-2 border rounded border-blue-600">
+          <FcCurrencyExchange size={40} />
+          <p className="text-center">User</p>
+        </div>
+        <div
+          onClick={() => navigate("/admins/login")}
+          className="cursor-pointer p-2 border rounded border-gray-300 hover:border-blue-600"
+        >
+          <FcPrivacy size={40} />
+          <p className="text-center">Admin</p>
+        </div>
+      </div>
+
       <h3 className="flex justify-center items-center text-2xl text-blue-800 font-bold text-center p-2 my-4 rounded shadow bg-blue-200 border-x-4 border-blue-800 select-none">
         <FcCurrencyExchange className="mr-1" size={45} />
         <span>Login</span>
       </h3>
+
       <form className="mt-10" onSubmit={handleSubmit}>
+        {/* Email */}
         <div className="mb-6">
           <label
             htmlFor="email"
@@ -67,15 +331,17 @@ export default function Login() {
           <input
             type="email"
             name="email"
-            className="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            defaultValue={email}
+            value={email}
             onChange={(e) =>
-              setFormInputs({ ...formInputs, email: e.target.value })
+              setFormInputs((prev) => ({ ...prev, email: e.target.value }))
             }
             placeholder="Enter your Email"
             required
+            className="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-gray-300 rounded focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
           />
         </div>
+
+        {/* Password */}
         <div className="mb-6">
           <label
             htmlFor="password"
@@ -86,47 +352,44 @@ export default function Login() {
           <input
             type="password"
             name="password"
-            className="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-800 focus:outline-none"
-            defaultValue={password}
+            value={password}
             onChange={(e) =>
-              setFormInputs({ ...formInputs, password: e.target.value })
+              setFormInputs((prev) => ({ ...prev, password: e.target.value }))
             }
             placeholder="Enter Your Password"
             required
+            className="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-gray-300 rounded focus:text-gray-700 focus:bg-white focus:border-blue-800 focus:outline-none"
           />
         </div>
+
+        {/* Forgot Password */}
         <div className="flex justify-end items-center mb-6">
-          <a
-            href="#"
-            className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
+          <Link
+            to="/forgot-password"
+            className="text-blue-600 hover:text-blue-700 transition duration-200 ease-in-out"
           >
             Forgot password?
-          </a>
+          </Link>
         </div>
 
-        {/*Request Status and Errors*/}
+        {/* Status Messages */}
         {(isError || isSuccess) && (
-          <MessagesContainer
-            msg={msg}
-            isSuccess={isSuccess}
-            isError={isError}
-          />
+          <MessagesContainer msg={msg} isSuccess={isSuccess} isError={isError} />
         )}
 
-        {/*form button */}
+        {/* Form Button */}
         <FormButton
           text={{ loading: "Processing", default: "Login" }}
           isLoading={isLoading}
           icon={<RiLoginCircleFill className="mb-[-2px] ml-1" size={27} />}
         />
 
-        {/*Redirect for Register */}
-
+        {/* Register Redirect */}
         <p className="text-gray-800 mt-6 text-center">
           Not a Client?
           <Link
             to="/register"
-            className="mx-2 text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
+            className="mx-2 text-blue-600 hover:text-blue-700 transition duration-200 ease-in-out"
           >
             Register
           </Link>
@@ -135,3 +398,4 @@ export default function Login() {
     </div>
   );
 }
+

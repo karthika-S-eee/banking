@@ -99,7 +99,6 @@ const createAdmin = async (req, res) => {
 //@route  >>>> POST /api/admins/owner/create
 //@Access >>>> Public(Use Postman/Thunder client/Rest Client)
 
-// IMPORTANT:- You NEED to Comment/remove This feature after creating the first owner
 // const createFirstAdmin = async (req, res) => {
 //   try {
 //     const hashedPassword = await bcrypt.hash(req.body.password, 10);

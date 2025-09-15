@@ -8,10 +8,10 @@ const validateName = (name) => {
   return regex.test(name);
 };
 
-//validate password
+// validate password
 const validatePassword = (password) => {
   let regex = new RegExp(
-    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{12,})"
+    "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$"
   );
   return regex.test(password);
 };

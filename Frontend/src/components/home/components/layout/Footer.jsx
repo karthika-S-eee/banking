@@ -24,7 +24,7 @@ export default function Footer() {
             <div className="flex justify-center items-center flex-col gap-4">
               <Logo />
               <p className="text-base !font-sans font-semibold text-teal-500">
-                E-Bank is everything you need now!
+                Digital_Vault is everything you need now!
               </p>
             </div>
             <div className="flex justify-center items-center gap-6">
@@ -71,7 +71,7 @@ export default function Footer() {
               href="#About"
             >
               {navIcons[1]}
-              Why E-Bank
+              Why Digital_Vault?
             </a>
             <a
               className="flex  items-center hover:text-blue-400 focus:text-blue-400"
@@ -106,7 +106,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-100 text-sm">
-              All Rights Reserved ©E-Bank {moment().year()}
+              All Rights Reserved ©Digital_Vault {moment().year()}
             </p>
           </div>
         </div>

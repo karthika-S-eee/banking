@@ -83,18 +83,18 @@ export default function Reviews() {
           {/* Section header */}
           <header className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <h2 className="text-3xl font-bold !font-sans mb-5 lg:mb-10 lg:text-4xl text-orange-600 drop-shadow-md">
-              Say Goodbye to Traditional Banking with E-Bank
+              Say Goodbye to Traditional Banking with Digital_Vault!
             </h2>
             <p
               className="text-xl !font-sans text-gray-600"
               data-aos="zoom-y-out"
             >
-              With over 20,000 satisfied clients all over Egypt, E-Bank is the
+              With over 20,000 satisfied clients all over Egypt, Digital_Vault is the
               ultimate banking solution for a fast, secure, and convenient
               banking experience. Say goodbye to long queues, paperwork, and
               outdated systems. Our innovative technology and personalized
               service make banking easier and more enjoyable than ever. Join the
-              E-Bank revolution today and take control of your finances.{" "}
+              Digital_Vault revolution today and take control of your finances.{" "}
             </p>
           </header>
 
@@ -127,11 +127,11 @@ export default function Reviews() {
                     {" "}
                     <FaQuoteLeft size={30} className="mr-2" />{" "}
                   </span>{" "}
-                  E-Bank has made banking so easy for me! The multiple account
+                  Digital_Vault has made banking so easy for me! The multiple account
                   feature is wonderful, and I can transfer, withdraw, and
                   deposit money anywhere and anytime. The support service is
                   also top-notch, always ready to assist with any questions or
-                  concerns. E-Bank has truly revolutionized the way I manage my
+                  concerns. Digital_Vault has truly revolutionized the way I manage my
                   finances.{" "}
                   <span className="text-orange-500">
                     {" "}
