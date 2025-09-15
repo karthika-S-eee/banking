@@ -3,7 +3,6 @@
 const devWhitelist = ["http://localhost:3000", "http://127.0.0.1:3000"];
 
 // Production whitelist from environment variable
-// Example in .env: CORS_DOMAINS=https://yourfrontend.com,https://www.yourfrontend.com
 const domainsFromEnv = process.env.CORS_DOMAINS || "";
 const productionWhitelist = domainsFromEnv
   .split(",")
