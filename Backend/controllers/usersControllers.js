@@ -2,6 +2,20 @@ const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const { generateUsersToken } = require("../helpers/generateUsersToken");
 
+
+//getUsers-get all users and can acess by admin only 
+//getoneUser- get one user 
+//createuser- registration of user
+//userLogin - users login
+// updateuser - 
+// notifiaction update
+// delete user
+// updateUserStatus
+
+
+
+
+
 //@desc   >>>> Get All Users
 //@route  >>>> GET /api/users
 //@Access >>>> private(admins)

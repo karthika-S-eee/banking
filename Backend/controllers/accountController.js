@@ -1,5 +1,13 @@
 const Account = require("../models/accountModel");
 
+  
+  // createdAccount - creating  account and sending request to  notification as approved from user to client (admin only)
+  // getAccount -get a specific account by id and send a response to clinet
+  //  deleteAccount - delete a specific account by id and send a response to clinet
+  //  transfer - transfer money from one account to another and send a notification to both users
+  //  deposit - deposit money to a specific account and send a response to clinet
+  //  withdraw - withdraw money from a specific account and send a response to clinet
+
 //@desc   >>>> Create Account
 //@route  >>>> POST /api/account/create
 //@Access >>>> Private (through admin approve only)

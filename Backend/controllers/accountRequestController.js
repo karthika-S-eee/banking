@@ -1,5 +1,11 @@
 const AccountRequest = require("../models/accountRequestModel");
 
+
+//createAccountRequest - get a account request from user and send a notification to admin to approve it
+// getAccountRequests -get all account requests and send a response to clinet
+//  deleteAccountRequest - delete a specific account request by id and send a notification to user  
+
+
 //@desc   >>>> Create Account Request
 //@route  >>>> POST /api/request/create
 //@Access >>>> Private (user only)

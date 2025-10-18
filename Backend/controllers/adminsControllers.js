@@ -2,6 +2,19 @@ const Admin = require("../models/adminModel");
 const bcrypt = require("bcryptjs");
 const { generateAdminsToken } = require("../helpers/generateAdminsToken");
 
+//getAdmins- get all admins
+//getOneAdmin - get one admin by id
+//adminLogin - login for admins and owner
+//createAdmin - create new admin (only owner can do this)
+//createFirstAdmin - create the first owner (public route, use postman/thunder client/rest client)
+//updateAdmin - update admin info (all admins for their accounts only)
+//updateOwner - update owner info (only owner can do this)
+//deleteAdmin - delete one admin (only owner can do this)
+//updateAdminRole - update admin role (only owner can do this)
+
+
+
+
 //@desc   >>>> Get All Admins
 //@route  >>>> GET /api/admins
 //@Access >>>> private(Owner Only)
